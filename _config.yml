@@ -1,0 +1,75 @@
+# Site Info
+title: "Sadhana Thirumangai"
+description: "ECE student at IIIT Kottayam — research in algorithms, AI, and open source."
+author_name: "Sadhana Thirumangai"
+logo_url: https://avatars.githubusercontent.com/u/sthirkal  # replace with your GitHub avatar URL
+
+# Site Settings
+url: https://sthirkal.github.io   # update to your GitHub username
+baseurl: ""                        # leave empty for username.github.io repos
+permalink: /:title
+timezone: Asia/Kolkata
+mathjax: true
+
+# Site Build
+highlighter: rouge
+markdown: kramdown
+kramdown:
+  input: GFM
+
+sass:
+  style: :compressed
+
+# Other Params
+include: ["robots.txt"]
+exclude: ["LICENSE", "README.md", "CNAME", "vendor", "Gemfile", "script"]
+
+plugins:
+  - jekyll-remote-theme
+  - jekyll-sitemap
+
+remote_theme: brenomfviana/the-plain-academic
+
+collections:
+  researches:
+    output: true
+    permalink: /researches/:name
+  projects:
+    output: true
+    permalink: /projects/:name
+  talks:
+    output: true
+    permalink: /talks/:name
+  blog:
+    output: true
+    permalink: /blog/:name
+
+defaults:
+  - scope:
+      path: ""
+    values:
+      layout: "null"
+  - scope:
+      type: "pages"
+    values:
+      layout: "page"
+  - scope:
+      type: "posts"
+    values:
+      layout: "post"
+  - scope:
+      type: "researches"
+    values:
+      layout: "research-post"
+  - scope:
+      type: "projects"
+    values:
+      layout: "post"
+  - scope:
+      type: "talks"
+    values:
+      layout: "post"
+  - scope:
+      type: "blog"
+    values:
+      layout: "post"
