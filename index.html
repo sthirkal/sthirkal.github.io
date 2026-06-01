@@ -1,199 +1,193 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Sadhana Thirumangai</title>
-    <link
-      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.17/dist/tailwind.min.css"
-      rel="stylesheet"
-    />
-  </head>
-  <body class="">
-    <div class="container mx-auto px-12 py-8">
-      <div class="bg-white flex flex-col space-y-12 rounded-lg p-8 md:px-24 px-8">
 
-        <!-- Header -->
-        <div class="text-center -mb-6">
-          <img
-            class="w-32 h-32 mb-4 mx-auto rounded-full object-cover"
-            src="https://avatars.githubusercontent.com/sthirkal"
-            alt="Sadhana Thirumangai"
-          />
-          <h1 class="text-3xl font-semibold mt-2">Sadhana Thirumangai</h1>
-          <h2 class="text-xl font-medium text-gray-600">
-            Theoretical CS Research | Final year at IIITK
-          </h2>
-          <div class="flex justify-center space-x-4 mt-3 text-sm text-gray-500">
-            <a href="mailto:sthirkal@gmail.com" class="text-blue-600 hover:underline">email</a>
-            <span>·</span>
-            <a href="https://github.com/sthirkal" class="text-blue-600 hover:underline">github</a>
-            <span>·</span>
-            <a href="https://linkedin.com/in/sthirkal" class="text-blue-600 hover:underline">linkedin</a>
-          </div>
-        </div>
+<style>
+  :root {
+    --cr1: #561C24;
+    --cr2: #6D2932;
+    --cr3: #C7B7A3;
+    --cr4: #E8D8C4;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  .page { background: #f5efe6; min-height: 100vh; padding: 2rem 1rem 3rem; font-family: var(--font-sans, system-ui, sans-serif); }
+  .card { background: #fff; border-radius: 16px; border: 0.5px solid #ddd0bc; max-width: 720px; margin: 0 auto; padding: 2.5rem 2rem; display: flex; flex-direction: column; gap: 2rem; }
 
-        <!-- About -->
-        <div class="text-center mb-4">
-          <h3 class="text-2xl font-semibold mb-2">About Me</h3>
-          <p class="text-gray-600">
-            I'm a final year student at IIIT Kottayam,
-            broadly interested in algorithms, combinatorics, graph theory, and game theory, My current research focuses on
-            computational social choice and graph theory. At IMSc, I work on game theory problems like fair allocation and coalition games. At LIS, I work on identification problems in graphs. Outside of research, I run an
-            independent digital zine about my thoughts and experiences.
-          </p>
-        </div>
+  .header { text-align: center; }
+  .avatar { width: 96px; height: 96px; border-radius: 50%; object-fit: cover; border: 3px solid var(--cr3); margin: 0 auto 1rem; display: block; }
+  .header h1 { font-size: 22px; font-weight: 500; color: var(--cr1); }
+  .header h2 { font-size: 14px; color: var(--cr2); margin-top: 4px; font-weight: 400; }
+  .links { display: flex; justify-content: center; gap: 1rem; margin-top: 10px; flex-wrap: wrap; }
+  .links a { font-size: 13px; color: var(--cr2); text-decoration: none; border-bottom: 1px solid var(--cr3); padding-bottom: 1px; }
+  .links a:hover { color: var(--cr1); border-color: var(--cr2); }
+  .dot { color: var(--cr3); font-size: 12px; line-height: 1.6; }
 
-        <hr />
+  .about { background: var(--cr1); border-radius: 12px; padding: 1.25rem 1.5rem; color: var(--cr4); font-size: 14px; line-height: 1.75; }
 
-        <!-- Experience -->
-        <div class="mb-4">
-          <h3 class="text-2xl font-semibold mb-4">Experience</h3>
-          <div class="flex flex-col space-y-6">
+  .section-title { font-size: 13px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.1em; color: var(--cr2); margin-bottom: 1rem; }
+  hr.divider { border: none; border-top: 0.5px solid #ddd0bc; }
 
-            <!-- IMSc -->
-            <div class="bg-gray-50 p-5 rounded-lg border border-gray-200">
-              <div class="flex justify-between items-start flex-wrap gap-2">
-                <div>
-                  <p class="font-semibold text-lg">Research Fellow</p>
-                  <p class="text-gray-700">The Institute of Mathematical Sciences, Chennai</p>
-                </div>
-                <span class="text-sm text-gray-500 whitespace-nowrap">May 2025 – Present</span>
-              </div>
-              <ul class="list-disc pl-5 mt-3 text-gray-600 space-y-1 text-sm">
-                <li>Explored algorithms for EFX allocations and orientations on graph structures including Bipartite Graphs.</li>
-                <li>Analysed EF1 orientation algorithms and explored improvements to time complexity beyond pseudo-polynomial time.</li>
-                <li>Currently exploring coalition games.</li>
-              </ul>
-            </div>
+  .exp-card { border-left: 3px solid var(--cr3); padding: 0.85rem 1rem; background: #faf5ef; border-radius: 0 8px 8px 0; }
+  .exp-title { font-size: 15px; font-weight: 500; color: var(--cr1); }
+  .exp-org { font-size: 13px; color: var(--cr2); margin-top: 2px; }
+  .exp-date { font-size: 12px; color: var(--cr3); }
+  .exp-header { display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 4px; }
+  .exp-bullets { margin-top: 8px; padding-left: 1rem; font-size: 13px; color: #5a3d35; line-height: 1.7; }
+  .exp-bullets li { margin-top: 4px; }
 
-            <!-- LIS Aix Marseille -->
-            <div class="bg-gray-50 p-5 rounded-lg border border-gray-200">
-              <div class="flex justify-between items-start flex-wrap gap-2">
-                <div>
-                  <p class="font-semibold text-lg">Student Researcher</p>
-                  <p class="text-gray-700">LIS – Laboratoire d'Informatique et Systèmes, Aix-Marseille University</p>
-                </div>
-                <span class="text-sm text-gray-500 whitespace-nowrap">Present</span>
-              </div>
-              <ul class="list-disc pl-5 mt-3 text-gray-600 space-y-1 text-sm">
-                <li>Working on identification problems in graphs.</li>
-              </ul>
-            </div>
+  .proj-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; }
+  .proj-card { background: var(--cr4); border-radius: 10px; padding: 1rem; border: 0.5px solid var(--cr3); display: flex; flex-direction: column; gap: 6px; }
+  .proj-name { font-size: 14px; font-weight: 500; color: var(--cr1); }
+  .proj-name a { color: var(--cr1); text-decoration: none; border-bottom: 1px dashed var(--cr2); }
+  .proj-name a:hover { color: var(--cr2); }
+  .proj-desc { font-size: 13px; color: #4a3028; line-height: 1.6; flex: 1; }
+  .proj-tags { font-size: 11px; color: var(--cr2); margin-top: 4px; }
 
-            <!-- FOSS United -->
-            <div class="bg-gray-50 p-5 rounded-lg border border-gray-200">
-              <div class="flex justify-between items-start flex-wrap gap-2">
-                <div>
-                  <p class="font-semibold text-lg">Campaigns and Advocacy Intern</p>
-                  <p class="text-gray-700">FOSS United</p>
-                </div>
-                <span class="text-sm text-gray-500 whitespace-nowrap">Present</span>
-              </div>
-              <ul class="list-disc pl-5 mt-3 text-gray-600 space-y-1 text-sm">
-                <li>Contributing to campaigns and advocacy efforts promoting free and open source software across India.</li>
-              </ul>
-            </div>
+  .ach-item { display: flex; gap: 12px; font-size: 13px; line-height: 1.6; }
+  .ach-year { color: var(--cr2); font-weight: 500; white-space: nowrap; min-width: 36px; }
+  .ach-text { color: #4a3028; }
+  .ach-title { font-weight: 500; color: var(--cr1); }
+  .ach-link { color: var(--cr2); text-decoration: none; font-size: 11px; margin-left: 6px; border-bottom: 1px dashed var(--cr3); }
+  .ach-link:hover { border-color: var(--cr2); }
 
+  .edu-item { font-size: 14px; color: #4a3028; line-height: 1.7; border-left: 3px solid var(--cr4); padding-left: 1rem; }
+  .edu-name { font-weight: 500; color: var(--cr1); }
 
-          </div>
-        </div>
+  .contact-block { background: var(--cr1); border-radius: 10px; padding: 1rem 1.25rem; display: flex; gap: 1.5rem; flex-wrap: wrap; }
+  .contact-block a { font-size: 13px; color: var(--cr4); text-decoration: none; display: flex; align-items: center; gap: 6px; }
+  .contact-block a:hover { color: #fff; }
 
-        <hr />
+  .footer { text-align: center; font-size: 12px; color: var(--cr3); }
+  .footer a { color: var(--cr2); }
+  .space-y > * + * { margin-top: 12px; }
+</style>
 
-        <!-- Projects -->
-        <div class="mb-4">
-          <h3 class="text-2xl font-semibold mb-4">Projects</h3>
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<div class="page">
+  <div class="card">
 
-            <div class="bg-gray-100 p-4 rounded-lg">
-              <p class="font-medium">Hyperspectral Imaging Reflectance Analysis</p>
-              <p class="text-gray-600 text-sm mt-2">
-                Used MATLAB to visualize and analyze IIRS hyperspectral images from Chandrayaan-2 for
-                lunar geological analysis. Applied wavelet transformation for noise reduction and designed
-                spectral classification models (KNN + Gaussian clustering) achieving 82% accuracy.
-              </p>
-              <p class="text-xs text-gray-400 mt-2">MATLAB · KNN · Gaussian Clustering · ISRO / NRSC</p>
-            </div>
-
-            <div class="bg-gray-100 p-4 rounded-lg">
-              <p class="font-medium">
-                <a href="https://vicriment.github.io" target="_blank" class="text-blue-600 hover:underline">Creative Portfolio &amp; Digital Zine</a>
-              </p>
-              <p class="text-gray-600 text-sm mt-2">
-                Developing and regularly publishing an independent digital zine and writing collection,
-                documenting creative explorations, design experiments, and conceptual narratives —
-                with a focus on visual storytelling, layout composition, and thematic coherence.
-              </p>
-              <p class="text-xs text-gray-400 mt-2">Design · Editorial · Visual Storytelling</p>
-            </div>
-
-          </div>
-        </div>
-
-        <hr />
-
-        <!-- Achievements -->
-        <div class="mb-4">
-          <h3 class="text-2xl font-semibold mb-4">Achievements</h3>
-          <ul class="space-y-3 text-gray-600">
-            <li class="flex gap-3">
-              <span class="text-gray-400 font-medium whitespace-nowrap">2025</span>
-              <span><span class="font-medium text-gray-800">Summer Research Fellowship Program</span> — One of 500 students selected nationwide for a funded research fellowship in CS &amp; Engineering.</span>
-            </li>
-            <li class="flex gap-3">
-              <span class="text-gray-400 font-medium whitespace-nowrap">2025</span>
-              <span><span class="font-medium text-gray-800">PyCon India</span> — One of eleven poster presentations selected from Asia to present at PyCon India.</span>
-            </li>
-            <li class="flex gap-3">
-              <span class="text-gray-400 font-medium whitespace-nowrap">2024</span>
-              <span><span class="font-medium text-gray-800">BeyondAI Research Program</span> — One of 44 students selected worldwide; explored spatio-temporal GNNs on TLE data under Dr. Helena Bahrami.</span>
-            </li>
-            <li class="flex gap-3">
-              <span class="text-gray-400 font-medium whitespace-nowrap">2024</span>
-              <span><span class="font-medium text-gray-800">ICTS Summer School for Women in Mathematics and Statistics</span> — One of 77 women selected worldwide for a fully funded summer school.</span>
-            </li>
-            <li class="flex gap-3">
-              <span class="text-gray-400 font-medium whitespace-nowrap">2024</span>
-              <span><span class="font-medium text-gray-800">NRSC, ISRO — Bharatiya Antariksh Hackathon</span> — One of two teams selected nationwide; developed a hyperspectral denoising model for Chandrayaan-2 data.</span>
-            </li>
-            <li class="flex gap-3">
-              <span class="text-gray-400 font-medium whitespace-nowrap">2024</span>
-              <span><span class="font-medium text-gray-800">IEEE WIE Scholarship</span> — Recipient of a scholarship from the Institute of Electrical and Electronics Engineers towards university tuition.</span>
-            </li>
-          </ul>
-        </div>
-
-        <hr />
-
-        <!-- Education -->
-        <div class="mb-4">
-          <h3 class="text-2xl font-semibold mb-2">Education</h3>
-          <ul class="list-disc pl-5 text-gray-600">
-            <li>
-              <span class="font-medium text-gray-800">B.Tech in Electronics and Communication Engineering</span><br />
-              Indian Institute of Information Technology, Kottayam · 2023 – 2027
-            </li>
-          </ul>
-        </div>
-
-        <hr />
-
-        <!-- Contact -->
-        <div class="mb-4">
-          <h3 class="text-2xl font-semibold mb-2">Contact</h3>
-          <p class="text-gray-600">
-            Email: <a class="text-blue-600 hover:underline" href="mailto:sthirkal@gmail.com">sthirkal@gmail.com</a><br />
-            GitHub: <a class="text-blue-600 hover:underline" href="https://github.com/sthirkal">github.com/sthirkal</a>
-          </p>
-        </div>
-
+    <div class="header">
+      <img class="avatar" src="https://avatars.githubusercontent.com/sthirkal" alt="Sadhana Thirumangai" />
+      <h1>Sadhana Thirumangai</h1>
+      <h2>Theoretical CS Research · Final year at IIITK</h2>
+      <div class="links">
+        <a href="mailto:sthirkal@gmail.com"><i class="ti ti-mail" aria-hidden="true"></i> email</a>
+        <span class="dot">·</span>
+        <a href="https://github.com/sthirkal"><i class="ti ti-brand-github" aria-hidden="true"></i> github</a>
+        <span class="dot">·</span>
+        <a href="https://linkedin.com/in/sthirkal"><i class="ti ti-brand-linkedin" aria-hidden="true"></i> linkedin</a>
       </div>
     </div>
 
-    <div class="flex justify-center mb-4 text-gray-400 text-sm">
-      The webpage template is taken from
-      <a class="text-blue-600 ml-1" href="https://github.com/onpix/minimal-academic-website">onpix</a>
+    <div class="about">
+      I'm a final year student at IIIT Kottayam, broadly interested in algorithms, combinatorics, graph theory, and game theory. My current research focuses on computational social choice and graph theory. At IMSc, I work on game theory problems like fair allocation and coalition games. At LIS, I work on identification problems in graphs. Outside of research, I run an independent digital zine about my thoughts and experiences.
     </div>
-  </body>
-</html>
+
+    <hr class="divider" />
+
+    <div>
+      <p class="section-title">Experience</p>
+      <div class="space-y">
+        <div class="exp-card">
+          <div class="exp-header">
+            <div>
+              <p class="exp-title">Research Fellow</p>
+              <p class="exp-org">Institute of Mathematical Sciences, Chennai</p>
+            </div>
+            <span class="exp-date">May 2025 – Present</span>
+          </div>
+          <ul class="exp-bullets">
+            <li>Explored algorithms for EFX allocations and orientations on graph structures including bipartite graphs.</li>
+            <li>Analysed EF1 orientation algorithms and explored improvements to time complexity beyond pseudo-polynomial time.</li>
+            <li>Currently exploring coalition games.</li>
+          </ul>
+        </div>
+        <div class="exp-card">
+          <div class="exp-header">
+            <div>
+              <p class="exp-title">Student Researcher</p>
+              <p class="exp-org">LIS – Aix-Marseille University</p>
+            </div>
+            <span class="exp-date">Present</span>
+          </div>
+          <ul class="exp-bullets">
+            <li>Working on identification problems in graphs.</li>
+          </ul>
+        </div>
+        <div class="exp-card">
+          <div class="exp-header">
+            <div>
+              <p class="exp-title">Campaigns and Advocacy Intern</p>
+              <p class="exp-org">FOSS United</p>
+            </div>
+            <span class="exp-date">Present</span>
+          </div>
+          <ul class="exp-bullets">
+            <li>Contributing to campaigns promoting free and open source software across India.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <hr class="divider" />
+
+    <div>
+      <p class="section-title">Projects</p>
+      <div class="proj-grid">
+        <div class="proj-card">
+          <p class="proj-name"><a href="https://drive.google.com/file/d/1FEm57EeYaUTMiyOJT6X8EVXsEYWIRXVF/view?usp=sharing" target="_blank">Fair Allocation on Graphs ↗</a></p>
+          <p class="proj-desc">Internship report from IMSc (2025) on EFX allocations and orientations on bipartite and general graph structures. Work on EF1 orientation complexity improvements is ongoing.</p>
+          <p class="proj-tags">Computational Social Choice · Graph Theory · Fair Division</p>
+        </div>
+        <div class="proj-card">
+          <p class="proj-name"><a href="https://github.com/sthirkal/ISRO-lunar-spectral-classification" target="_blank">Hyperspectral Imaging — Chandrayaan-2 ↗</a></p>
+          <p class="proj-desc">MATLAB visualisation and analysis of IIRS hyperspectral images for lunar geological analysis. Wavelet transformation for noise reduction; KNN + Gaussian clustering achieving 82% accuracy.</p>
+          <p class="proj-tags">MATLAB · KNN · Gaussian Clustering · ISRO / NRSC</p>
+        </div>
+        <div class="proj-card">
+          <p class="proj-name"><a href="https://github.com/ThinkingBeyond/BeyondAI-2024/tree/main/adityan-sadhana" target="_blank">Spatio-Temporal GNNs on TLE Data ↗</a></p>
+          <p class="proj-desc">BeyondAI 2024 research project exploring spatio-temporal graph neural networks on Two-Line Element satellite data, under Dr. Helena Bahrami.</p>
+          <p class="proj-tags">GNN · Spatio-Temporal · TLE · BeyondAI</p>
+        </div>
+        <div class="proj-card">
+          <p class="proj-name"><a href="https://vicriment.github.io" target="_blank">Creative Portfolio &amp; Digital Zine ↗</a></p>
+          <p class="proj-desc">An independent digital zine and writing collection documenting creative explorations, design experiments, and conceptual narratives — visual storytelling and layout composition.</p>
+          <p class="proj-tags">Design · Editorial · Visual Storytelling</p>
+        </div>
+      </div>
+    </div>
+
+    <hr class="divider" />
+
+    <div>
+      <p class="section-title">Achievements</p>
+      <div class="space-y">
+        <div class="ach-item"><span class="ach-year">2025</span><span class="ach-text"><span class="ach-title">Summer Research Fellowship Program</span> — One of 500 students selected nationwide for a funded research fellowship in CS &amp; Engineering.</span></div>
+        <div class="ach-item"><span class="ach-year">2025</span><span class="ach-text"><span class="ach-title">PyCon India</span> — One of eleven poster presentations selected from Asia. <a class="ach-link" href="https://drive.google.com/file/d/1OFuuGWbi88STpZdcDlelppRPlxbHT2QF/view?usp=sharing" target="_blank">View poster ↗</a></span></div>
+        <div class="ach-item"><span class="ach-year">2024</span><span class="ach-text"><span class="ach-title">BeyondAI Research Program</span> — One of 44 students selected worldwide; explored spatio-temporal GNNs on TLE data under Dr. Helena Bahrami. <a class="ach-link" href="https://github.com/ThinkingBeyond/BeyondAI-2024/tree/main/adityan-sadhana" target="_blank">View project ↗</a></span></div>
+        <div class="ach-item"><span class="ach-year">2024</span><span class="ach-text"><span class="ach-title">ICTS Summer School for Women in Mathematics and Statistics</span> — One of 77 women selected worldwide for a fully funded summer school.</span></div>
+        <div class="ach-item"><span class="ach-year">2024</span><span class="ach-text"><span class="ach-title">NRSC, ISRO — Bharatiya Antariksh Hackathon</span> — One of two teams selected nationwide; developed a hyperspectral denoising model for Chandrayaan-2 data. <a class="ach-link" href="https://github.com/sthirkal/ISRO-lunar-spectral-classification" target="_blank">View project ↗</a></span></div>
+        <div class="ach-item"><span class="ach-year">2024</span><span class="ach-text"><span class="ach-title">IEEE WIE Scholarship</span> — Recipient of a scholarship from IEEE towards university tuition.</span></div>
+      </div>
+    </div>
+
+    <hr class="divider" />
+
+    <div>
+      <p class="section-title">Education</p>
+      <div class="edu-item">
+        <span class="edu-name">B.Tech in Electronics and Communication Engineering</span><br />
+        Indian Institute of Information Technology, Kottayam · 2023 – 2027
+      </div>
+    </div>
+
+    <hr class="divider" />
+
+    <div>
+      <p class="section-title">Contact</p>
+      <div class="contact-block">
+        <a href="mailto:sthirkal@gmail.com"><i class="ti ti-mail" aria-hidden="true"></i> sthirkal@gmail.com</a>
+        <a href="https://github.com/sthirkal"><i class="ti ti-brand-github" aria-hidden="true"></i> github.com/sthirkal</a>
+      </div>
+    </div>
+
+    <p class="footer">Template adapted from <a href="https://github.com/onpix/minimal-academic-website">onpix</a></p>
+
+  </div>
+</div>
